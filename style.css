@@ -1,0 +1,28 @@
+header{background-color: #1f1e33; 
+    color: white; 
+    border-radius: 5px; 
+    background-image: linear-gradient(to left, black, #1f1e33)}
+.logo{width: 5%;
+     justify-items: center;}
+.titulo-um{color:black;
+     font-family: Consolas;} 
+.guima{width: 5%;
+     border-radius: 20px}
+.albeta{width: 5%;
+     border-radius: 20px}
+.bolsonazi{width: 5%;
+     border-radius: 20px}
+.vina{width: 5%; 
+    border-radius: 20px}
+.estudantes{background-color: black; 
+    color: black; padding-left: 25px; 
+    padding-top: 250px;
+     font-family: Trebuchet MS; 
+    border-radius: 20px; 
+    background-image: linear-gradient(to top, black, white);}
+.proposta{font-family: Trebuchet MS}
+.biografiadorepresentantedopais{color: white}
+.biografiadocalvo{color: white}
+.biografiadolidervina{color: white}
+.biografiodoalbeta{color: white}
+.equipe{font-family: arial black}
