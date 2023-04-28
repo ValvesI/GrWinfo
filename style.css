@@ -4,25 +4,69 @@ header{background-color: #1f1e33;
     background-image: linear-gradient(to left, black, #1f1e33)}
 .logo{width: 5%;
      justify-items: center;}
-.titulo-um{color:black;
-     font-family: Consolas;} 
+.titulo-um{
+     background-image: linear-gradient(to right, black, aqua);
+     background-clip: text;
+     -webkit-background-clip: text;
+     color: transparent;
+     font-family: Consolas;
+     display: inline-block;
+     border: 3px solid black;
+     text-align: center;
+     border-radius: 10px;
+     -webkit-text-stroke: 0.5px black;} 
 .guima{width: 5%;
      border-radius: 20px}
 .albeta{width: 5%;
-     border-radius: 20px}
+     border-radius: 20px;
+height: 67px;}
 .bolsonazi{width: 5%;
-     border-radius: 20px}
+     border-radius: 20px;
+     flex: 50%;
+height: 67px}
 .vina{width: 5%; 
-    border-radius: 20px}
+    border-radius: 20px;}
 .estudantes{background-color: black; 
     color: black; padding-left: 25px; 
     padding-top: 250px;
      font-family: Trebuchet MS; 
     border-radius: 20px; 
-    background-image: linear-gradient(to top, black, white);}
+    background-image: linear-gradient(to top, black, white);
+display: flex}
 .proposta{font-family: Trebuchet MS}
 .biografiadorepresentantedopais{color: white}
 .biografiadocalvo{color: white}
 .biografiadolidervina{color: white}
 .biografiodoalbeta{color: white}
 .equipe{font-family: arial black}
+.irprequipe{
+     scroll-behavior: smooth;
+     text-decoration: none;
+     color: white;}
+     .conteudo{
+          columns: 300px;
+     display: flex;
+border: 1px solid black;
+border-radius: 15px;
+background-color: rgb(48, 45, 73);}
+.comidafoto{width: 200px;
+     border-radius: 15px;
+     border: 5px solid rgba(255, 255, 255, 0.192);
+}
+.treinosfoto{width: 200px;
+border-radius: 15px;
+border: 5px solid rgba(255, 255, 255, 0.192);
+}
+   .atletasfoto{width: 200px;
+     height: 134px;
+     border-radius: 15px;
+border: 5px solid rgba(255, 255, 255, 0.192);
+}
+.suplementosfoto{width: 200px;
+border: 5px solid rgba(255, 255, 255, 0.192);
+border-radius: 15px;}
+.motivacaofoto{width: 200px;
+     border-radius: 15px;
+height: 134px;
+border: 5px solid rgba(255, 255, 255, 0.192);
+}
