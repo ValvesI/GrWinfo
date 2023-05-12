@@ -70,5 +70,6 @@ border-radius: 15px;}
 height: 134px;
 border: 5px solid rgba(255, 255, 255, 0.192);
 }
-footer{background-color: rgba(230, 27, 27, 0.932);
-border-radius: 30px;}
+.roda-pé{background-color: black;
+justify-content: center;
+}
