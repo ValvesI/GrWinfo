@@ -72,4 +72,8 @@ border: 5px solid rgba(255, 255, 255, 0.192);
 }
 .roda-pé{background-color: black;
 justify-content: center;
+color: white
 }
+.roda-pé img{width: 40px;
+     border-radius: 50%;
+     padding: 0px 30px}
