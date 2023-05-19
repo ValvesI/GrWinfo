@@ -14,7 +14,8 @@ header{background-color: #1f1e33;
      border: 3px solid black;
      text-align: center;
      border-radius: 10px;
-     -webkit-text-stroke: 0.5px black;} 
+     -webkit-text-stroke: 0.5px black;
+background-color: #009edf ;} 
 .guima{width: 5%;
      border-radius: 20px}
 .albeta{width: 5%;
@@ -78,5 +79,6 @@ color: white
      border-radius: 50%;
      padding: 0px 30px}
 body{background-color: white;
-color: }
-head{background-color: #009edf}
+color: black;}
+head{background-color: #009edf;
+}
