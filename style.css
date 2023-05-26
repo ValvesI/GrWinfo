@@ -70,7 +70,7 @@ height: 134px;
 border: 5px solid rgba(255, 255, 255, 0.192);
 }
 .formulário{background-color: beige;
-justify-content: center;}
+text-align: center;}
 .roda-pé{background-color: black;
 justify-content: center;
 color: white
