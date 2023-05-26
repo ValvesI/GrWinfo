@@ -71,7 +71,8 @@ border: 5px solid rgba(255, 255, 255, 0.192);
 }
 .formulário{background-color: beige;
 text-align: center;}
-.textnome{width: 100%;
+.input[type=submit]
+{width: 100%;
      padding-left: 10px;
      height: 30px;
      line-height: 30px;
