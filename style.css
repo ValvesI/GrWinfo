@@ -71,14 +71,6 @@ border: 5px solid rgba(255, 255, 255, 0.192);
 }
 .formulário{background-color: beige;
 text-align: center;}
-.input[type=submit]
-{width: 100%;
-     padding-left: 10px;
-     height: 30px;
-     line-height: 30px;
-     border-radius: 15px; 
-     border: 1px solid #ccc; 
-     outline: none;}
 .roda-pé{background-color: black;
 justify-content: center;
 color: white
