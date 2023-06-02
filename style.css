@@ -70,6 +70,10 @@ border-radius: 15px;}
 height: 134px;
 border: 5px solid rgba(255, 255, 255, 0.192);
 }
+.formulariopv{
+     align-items: center;
+     padding: 30px;
+}
 .formulario{
      width: 400px;
      padding: 30px;
