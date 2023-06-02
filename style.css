@@ -30,7 +30,9 @@ height: 67px}
     padding-top: 250px;
      font-family: Trebuchet MS;
     background-color:rgb(115, 115, 119);
-display: flex}
+    width:100%;
+    margin: 15px 0;
+}
 .proposta{font-family: Trebuchet MS}
 .biografiadorepresentantedopais{color: white}
 .biografiadocalvo{color: white}
