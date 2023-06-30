@@ -143,8 +143,9 @@ head{background-color: #009edf;
 .div_explicaçao{width: 100%;}
 .slider img
 {
- margin: 0;
+ margin: auto;
  padding: 0;    
  width: 80px;
  height: 80px;    
+ vertical-align: top;
 }
