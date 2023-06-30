@@ -162,3 +162,6 @@ head{background-color: #009edf;
      list-style: none;
      position: absolute;
  }
+ .slider input {
+     display: none;
+ }
