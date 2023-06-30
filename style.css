@@ -150,14 +150,13 @@ head{background-color: #009edf;
 }
 .slider {
      display: block;
-     height: 293px;
-     width: 600px;
-     margin: auto;
+     height: 468px;
      margin-top: 20px;
      position: relative;
+     margin-right: auto;
+     padding: 0px 160px;
  }
- 
- .slider li {
+.slider li {
      list-style: none;
      position: absolute;
  }
