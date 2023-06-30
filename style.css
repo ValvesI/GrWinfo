@@ -143,10 +143,9 @@ head{background-color: #009edf;
 .div_explicaçao{width: 100%;}
 .slider img
 {
- margin: auto;  
- width: 200px;
- height: 200px;    
- vertical-align: top;
+   width: 83vw;
+   height: 450px;    
+ 
 }
 .slider {
      display: block;
