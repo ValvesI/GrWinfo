@@ -141,3 +141,8 @@ color: black;}
 head{background-color: #009edf;
 }
 .div_explicaçao{width: 100%;}
+.slider img
+{
+ width: 80px;
+ height: 80px;    
+}
