@@ -149,3 +149,16 @@ head{background-color: #009edf;
  height: 80px;    
  vertical-align: top;
 }
+.slider {
+     display: block;
+     height: 293px;
+     width: 600px;
+     margin: auto;
+     margin-top: 20px;
+     position: relative;
+ }
+ 
+ .slider li {
+     list-style: none;
+     position: absolute;
+ }
