@@ -165,7 +165,7 @@ head{background-color: #009edf;
      display: none;
  }
  .slider label {
-     background-color: #000;
+     background-color: #ff0000;
      bottom: 10px;
      cursor: pointer;
      display: block;
