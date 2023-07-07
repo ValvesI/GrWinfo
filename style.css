@@ -1,5 +1,7 @@
 header{background-color: #1f1e33; 
-    color: white;}
+    color: white;
+    font-family: var(--font-default-override,var(--font-default));
+    -ms-overflow-style: scrollbar;}
 .logo{width: 5%;
      justify-items: center;}
 .titulo-um{
