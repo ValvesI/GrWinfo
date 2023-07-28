@@ -218,5 +218,5 @@ head{background-color: #009edf;
 
 .turma{
     display: block;
-    margin: none;
+    margin-block-end: 0px;
 }
