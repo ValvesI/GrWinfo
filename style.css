@@ -196,4 +196,11 @@ head{background-color: #009edf;
      z-index: 10;
  }
  * { margin: 0; padding: 0; }
- .oquesomos{text-align: center;}
+ .oquesomos
+ {
+    text-align: center;}
+ .potenciometro
+ {
+    width:809px;
+    length: 472px;
+}
