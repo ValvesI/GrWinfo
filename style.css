@@ -213,6 +213,9 @@ head{background-color: #009edf;
 
 }
 .butaos{
-  text-decoration: none;
-  
+
+}
+
+.turma{
+    display: block
 }
