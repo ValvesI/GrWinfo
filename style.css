@@ -2,7 +2,7 @@ header{background-color: #1f1e33;
     color: white;
     font-family: Torus,Inter,Helvetica Neue,Tahoma,Arial,Hiragino Kaku Gothic ProN,Meiryo,Microsoft YaHei,Apple SD Gothic Neo,sans-serif;}
 .logo{width: 5%;
-     justify-items: center;}
+     justify-items: right;}
 .titulo-um{
      background-image: linear-gradient(to right, white, aqua);
      background-clip: text;
