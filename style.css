@@ -205,18 +205,17 @@ head{background-color: #009edf;
  .potenciometro
  {
     width: 809px;
-    length: 472px;
+    height: 472px;
 }
 .fotos
 {
-    text-align: center
-
-}
-.butaos{
+    text-align: center;
 
 }
 
 .turma{
+    display: flex;
+    margin-block-end: 0px;
     width: 25%;
     margin: 0%;
 }
