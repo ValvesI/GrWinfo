@@ -1,6 +1,9 @@
 header{background-color: #1f1e33; 
     color: white;
-    font-family: Torus,Inter,Helvetica Neue,Tahoma,Arial,Hiragino Kaku Gothic ProN,Meiryo,Microsoft YaHei,Apple SD Gothic Neo,sans-serif;}
+    font-family: Torus,Inter,Helvetica Neue,Tahoma,Arial,Hiragino Kaku Gothic ProN,Meiryo,Microsoft YaHei,Apple SD Gothic Neo,sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;}
 .logo{width: 5%;
      text-align: right;}
 .titulo-um{
