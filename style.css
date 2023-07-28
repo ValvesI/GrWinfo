@@ -217,5 +217,6 @@ head{background-color: #009edf;
 }
 
 .turma{
-    display: block
+    display: block;
+    margin: none
 }
