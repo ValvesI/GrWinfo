@@ -139,7 +139,9 @@ color: white;
      padding: 0px 30px}
 body{background-color: white;
 color: white;
-line-height: 46px;}
+line-height: 46px;
+font-size: 40px;
+}
 head{background-color: #009edf;
 }
 .div_explicaçao{width: 100%;}
