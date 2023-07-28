@@ -4,7 +4,7 @@ header{background-color: #1f1e33;
 .logo{width: 5%;
      justify-items: center;}
 .titulo-um{
-     background-image: linear-gradient(to right, black, aqua);
+     background-image: linear-gradient(to right, white, aqua);
      background-clip: text;
      -webkit-background-clip: text;
      color: transparent;
