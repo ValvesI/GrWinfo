@@ -84,7 +84,131 @@
     <p>Conceitos importantes</p>
     <p>Push button, buzzer, display e ordem dos semáforos <br>
     <p>Programação</p>
-    <p>Pendente...</p>
+    <p>#include <Adafruit_LEDBackpack.h>
+
+        // C++ code
+        //
+        
+        #define LED_VERMELHO 13
+        #define LED_VERDE 11
+        #define LED_AMARELO 12
+        
+        #define LED_VERDE_PEDESTRE 9
+        #define LED_VERMELHO_PEDESTRE 10
+        
+        #define BOTAO 7
+        
+        #define BUZZER 3
+        
+        
+        bool button_state;
+        
+        Adafruit_7segment led_display1 = Adafruit_7segment();
+        
+        void setup()
+        {
+          led_display1.begin(112);
+        
+          pinMode(LED_VERMELHO, OUTPUT);
+          pinMode(LED_VERDE, OUTPUT);
+          pinMode(LED_AMARELO, OUTPUT);
+          pinMode(LED_VERDE_PEDESTRE, OUTPUT);
+          pinMode(LED_VERMELHO_PEDESTRE, OUTPUT);
+          
+          pinMode(BUZZER, OUTPUT);
+          
+          pinMode(BOTAO, INPUT); 
+        }
+        
+        void loop()
+        {
+          //fazendo barulho
+          tone(BUZZER, 250, 150);
+          
+          for(int i = 799; i >= 0; i--) {
+            if (i % 10 == 0) {
+              led_display1.println(i / 100);
+                led_display1.writeDisplay();
+            }
+            
+            //ligando os sinais
+            digitalWrite(LED_VERDE, HIGH);
+              digitalWrite(LED_VERMELHO_PEDESTRE, HIGH);
+            
+            button_state = digitalRead(BOTAO); //verifica se
+                                               //o botao foi
+                                               //apertado
+               
+            //para o loop se o pedestre apertar o botao
+            if(button_state == true) {
+              break;
+            }
+            
+            delay(10);
+          }
+          
+          //fazendo barulho
+          tone(BUZZER, 100, 150);
+          
+          for(int i = 2; i >= 0; i--) { 
+            //mostrando o timer no led
+            led_display1.println(i);
+            led_display1.writeDisplay();
+            //desligando os sinais
+            digitalWrite(LED_VERDE, LOW);
+            //ligando os sinais
+             digitalWrite(LED_AMARELO, HIGH);
+            
+            //button_state = digitalRead(BOTAO);
+            delay(1000);
+          }
+          
+          //fazendo barulho
+          tone(BUZZER, 200, 150);
+          
+          for(int i = 7; i >= 0; i--) {
+               //mostrando o timer no led 
+            led_display1.println(i);
+            led_display1.writeDisplay();
+            
+            //desligando os sinais
+           
+            digitalWrite(LED_AMARELO, LOW);
+            //ligando os sinais
+            digitalWrite(LED_VERMELHO_PEDESTRE, LOW);
+            digitalWrite(LED_VERMELHO, HIGH);
+            delay(1000);
+            digitalWrite(LED_VERDE_PEDESTRE, HIGH);
+            
+            
+            //button_state = digitalRead(BOTAO);
+            
+              
+             delay(1000);
+          }
+          
+          for(int i = 3; i >= 0; i--) {
+               //mostrando o timer no led 
+            led_display1.println(i);
+            led_display1.writeDisplay();
+            
+            //desligando os sinais
+           
+            digitalWrite(LED_AMARELO, LOW);
+            //ligando os sinais
+            digitalWrite(LED_VERMELHO_PEDESTRE, LOW);
+            digitalWrite(LED_VERMELHO, HIGH);
+            delay(1000);
+            digitalWrite(LED_VERDE_PEDESTRE, HIGH);
+          
+          
+          //desligando
+          digitalWrite(LED_VERMELHO, LOW);
+          digitalWrite(LED_VERDE_PEDESTRE, LOW);
+        }
+        }
+            
+        </p>
     <img src="imagens/projetodesne.png">
 <hr>
 
