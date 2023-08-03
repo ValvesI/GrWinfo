@@ -228,5 +228,6 @@ head{background-color: #009edf;
     margin: auto;
     display: flex;
 }
-.potenciometro img{width: 25%;
-height: 25%}
+.potenciometro{
+    width: 20px;
+    height: 20px}
