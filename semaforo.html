@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo</title>
+    <link rel="shortcut icon" href="imagens/icone.png" type="image/x-icon">
+</head>
+<body>
+    <p>#include &ltTM1637Display.h&gt
+
+        <p>// C++ code</p>
+        <p>//</p>
+        
+        <p>#define LED_VERMELHO 13</p>
+        <p>#define LED_VERDE 11</p>
+        <p> #define LED_AMARELO 12</p>
+        
+        <p> #define LED_VERDE_PEDESTRE 9</p>
+        <p> #define LED_VERMELHO_PEDESTRE 10</p>
+        
+        <p> #define BOTAO 7</p>
+        
+        <p> #define BUZZER 3</p>
+        
+        <p> #define CLK A4</p>
+        <p>#define DIO A5</p>
+        
+        <p>bool button_state;</p>
+        <p>TM1637Display display(CLK, DIO);</p>
+        
+        <p>void setup()</p>
+        <p>{</p>
+            <p>display.setBrightness(15);</p>
+          <p> pinMode(LED_VERMELHO, OUTPUT);</p>
+          <p> pinMode(LED_VERDE, OUTPUT);</p>
+          <p>pinMode(LED_AMARELO, OUTPUT);</p>
+          <p> pinMode(LED_VERDE_PEDESTRE, OUTPUT);</p>
+          <p>pinMode(LED_VERMELHO_PEDESTRE, OUTPUT);</p>
+          
+          <p> pinMode(BUZZER, OUTPUT);</p>
+          
+          <p> pinMode(BOTAO, INPUT); </p>
+          <p>}</p>
+        
+        <p> void loop()</p>
+        <p> {</p>
+            <p>//fazendo barulho</p>
+          <p>tone(BUZZER, 250, 150);</p>
+          
+          <p>for(int i = 799; i >= 0; i--) {</p>
+            <p> if (i % 10 == 0) {</p>
+                <p>   display.showNumberDec(i / 100) ;</p>
+              <p> }</p>
+            
+            <p> //ligando os sinais</p>
+            <p>digitalWrite(LED_VERDE, HIGH);</p>
+            <p> digitalWrite(LED_VERMELHO_PEDESTRE, HIGH);</p>
+            
+              <p>button_state = digitalRead(BOTAO); //verifica se</p>
+            <p> //o botao foi</p>
+                                               <p> //apertado</p>
+               
+                                               <p>//para o loop se o pedestre apertar o botao</p>
+            <p>  if(button_state == true) {</p>
+                <p> break;</p>
+              <p> }</p>
+            
+            <p></p>delay(10);</p>
+            <p> }</p>
+          
+          <p>//fazendo barulho</p>
+          <p> tone(BUZZER, 100, 150);</p>
+          
+          <p> for(int i = 2; i >= 0; i--) { </p>
+            <p> //mostrando o timer no led</p>
+            <p>  display.showNumberDec(i, true);</p>
+            <p>//desligando os sinais</p>
+            <p> digitalWrite(LED_VERDE, LOW);</p>
+            <p> //ligando os sinais</p>
+            <p>  digitalWrite(LED_AMARELO, HIGH);</p>
+            
+             <p>//button_state = digitalRead(BOTAO);</p>
+            <p> delay(1000);</p>
+            <p> }</p>
+          
+          <p>//fazendo barulho</p>
+          <p>tone(BUZZER, 200, 150);</p>
+          
+          <p>for(int i = 7; i >= 0; i--) {</p>
+            <p>    //mostrando o timer no led </p>
+               <p>  display.showNumberDec(i, true);</p>
+            
+            <p>//desligando os sinais</p>
+           
+            <p>digitalWrite(LED_AMARELO, LOW);</p>
+            <p> //ligando os sinais</p>
+            <p> digitalWrite(LED_VERMELHO_PEDESTRE, LOW);</p>
+            <p>digitalWrite(LED_VERMELHO, HIGH);</p>
+            <p>delay(1000);</p>
+            <p>digitalWrite(LED_VERDE_PEDESTRE, HIGH);</p>
+            
+            
+            <p>//button_state = digitalRead(BOTAO);</p>
+            
+              
+            <p>delay(1000);</p>
+             <p>}</p>
+          
+          <p>for(int i = 3; i >= 0; i--) {</p>
+            <p>//mostrando o timer no led </p>
+               <p>display.showNumberDec(i, true);</p>
+            
+            <p>/desligando os sinais</p>
+           
+            <p>digitalWrite(LED_AMARELO, LOW);</p>
+            <p>//ligando os sinais</p>
+            <p>digitalWrite(LED_VERMELHO_PEDESTRE, LOW);</p>
+            <p>digitalWrite(LED_VERMELHO, HIGH);</p>
+            <p>delay(1000);</p>
+            <p>digitalWrite(LED_VERDE_PEDESTRE, HIGH);</p>
+          
+          
+            <p>//desligando</p>
+          <p>digitalWrite(LED_VERMELHO, LOW);</p>
+          <p>digitalWrite(LED_VERDE_PEDESTRE, LOW);</p>
+          <p>}</p>
+        <p>
+            
+        </p>
+    
+</body>
+</html>
