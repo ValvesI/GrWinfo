@@ -1,25 +1,4 @@
-header{background-color: #1f1e33; 
-    color: white;
-    font-family: Torus,Inter,Helvetica Neue,Tahoma,Arial,Hiragino Kaku Gothic ProN,Meiryo,Microsoft YaHei,Apple SD Gothic Neo,sans-serif;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;}
-.logo{width: 5%;
-     text-align: right;}
-.titulo-um{
-     background-image: linear-gradient(to right, white, aqua);
-     background-clip: text;
-     -webkit-background-clip: text;
-     color: transparent;
-     font-family: Consolas;
-     display: inline-block;
-     border: 3px solid aliceblue;
-     text-align: center;
-     border-radius: 10px;
-     -webkit-text-stroke: 0.5px black;
-     margin: auto;
-     margin-top: inherit;
-background-color: #009edf ;} 
+
 .guima{width: 5%;
      border-radius: 20px}
 .albeta{width: 5%;
