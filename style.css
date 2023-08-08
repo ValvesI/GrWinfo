@@ -202,6 +202,8 @@ head{background-color: #009edf;
      opacity: 1;
      visibility: visible;
      z-index: 10;
+     width: 1080px;
+     height: 1344px;
  }
  * { margin: 0; padding: 0; }
  .oquesomos
@@ -232,5 +234,3 @@ head{background-color: #009edf;
     width: 20px;
     height: 20px}
 .shizzy
-{width: 1080px;
-height: 1344px;}
