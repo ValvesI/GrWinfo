@@ -70,6 +70,14 @@ header .overlay {
 img{
   margin-right:20px
 }
+.site {
+  padding: 20em 0;
+  text-align: center;
+  background-color: #efefef;
+  font-size: .8em;
+  color: #444;
+  position:relative
+}
 .site a {
   color: #666;
   text-decoration: none;
