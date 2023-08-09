@@ -325,3 +325,9 @@ height: 17%;}
   }
   
 }
+@media screen and (max-width: 800x) {
+  .formulariopv {
+    padding: 0px;
+  }
+  
+}
