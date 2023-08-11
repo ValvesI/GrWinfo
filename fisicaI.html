@@ -122,7 +122,25 @@
                                                 <p>void setup()</p>
                                                     <p> {</p>
                                                         <p> led_display1.begin(112);</p>
-        
+        <p>  if (i == 700) { </p>
+            <p>  digitalWrite (barra1, HIGH);} </p>
+                <p>if (i == 560) {</p>
+                    <p>digitalWrite (barra2, HIGH);}</p>
+            <p>if (i == 420) {</p>
+                <p>digitalWrite (barra3, HIGH);}</p>
+            <p> if (i == 280) {</p>
+                <p>  digitalWrite (barra4, HIGH);}</p>
+                    <p> if (i == 140) {</p>
+                        <p>digitalWrite (barra5, HIGH);}</p>
+                            <p> if (i == 0) {</p>
+                                <p> digitalWrite (barra5, LOW);</p>
+                                    <p> digitalWrite(barra4, LOW);</p>
+                                        <p> digitalWrite(barra3, LOW);</p>
+                                            <p>digitalWrite(barra2, LOW);</p>
+                                                <p> digitalWrite(barra1, LOW);}</p>
+                                                    <p> //ligando os sinais
+                                                        <p> digitalWrite(LED_VERDE, HIGH);</p>
+                                                            <p>  digitalWrite(LED_VERMELHO_PEDESTRE, HIGH);</p>
                                                             <p> pinMode(LED_VERMELHO, OUTPUT);</p>
                                                                 <p> pinMode(LED_VERDE, OUTPUT);</p>
                                                                     <p> pinMode(LED_AMARELO, OUTPUT);</p>
@@ -226,6 +244,7 @@
 
     <img src="imagens/projetodesne.png">
     <p><b>OBS IMPORTANTE: o código acima se aplica somente com o uso do display que está presente no tinkercad</b></p>
+    <p><b>OBS IMPORTANTE 2: o projeto do tinkercad tem a barra grapfica implementada2</b></p>
     <a href="semaforo.html"><b>Para usar e vizualizar a programação apropriada para o display que temos em sala</b></a>
    <p><a href="https://www.tinkercad.com/things/0OWsk1weQ7V-projeto-7k/editel?sharecode=DnFrCnC6ckUPSZ_lVUfTNULW9DX1IYKKIUB2Z-ch5Gg">Projeto no Tinkercad</a></p> 
 <hr>
