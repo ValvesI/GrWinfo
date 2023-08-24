@@ -1,1 +1,1 @@
-alert('Alerta de viado')
+alert('Testosterona ixtouradassa, esqueça tudo')
