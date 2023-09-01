@@ -19,11 +19,12 @@ while (contador < listadeteclas.length) {
  const tecla = listadeteclas[contador];
  const analise = tecla.classList[1];
 
+ //template
     const idaudio = `#som_${analise}`;
 
     console.log(idaudio);
 
-    tecla[contador].onclick = function () {
+    tecla.onclick = function () {
         tocasom(idaudio);
     }
 
