@@ -17,7 +17,7 @@ let contador = 0
 while (contador < listadeteclas.length) {
 
  const tecla = listadeteclas[contador];
- const analise = listadeteclas[contador].classList[1];
+ const analise = tecla[contador].classList[1];
 
     const idaudio = `#som_${analise}`;
 
