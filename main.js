@@ -22,7 +22,7 @@ while (contador < listadeteclas.length) {
  //template---------------------------------------------------
     const idaudio = `#som_${analise}`;
 
-    console.log(idaudio);
+    //console.log(idaudio);
 //-------------------------------------------------------------
     tecla.onclick = function () {
         tocasom(idaudio);
@@ -30,6 +30,6 @@ while (contador < listadeteclas.length) {
 
     contador = contador + 1;
 
-    console.log(contador);
+    //console.log(contador);
 
 }
