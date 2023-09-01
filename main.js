@@ -23,7 +23,7 @@ while (contador < listadeteclas.length) {
 
     console.log(idaudio);
 
-    tecla[contador].onclick =  function () {
+    tecla[contador].onclick = function () {
         tocasom(idaudio);
     }
 
