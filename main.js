@@ -1,5 +1,5 @@
 //Alerta
-alert('Testosterona ixtouradassa, esqueça tudo');
+//alert('Testosterona ixtouradassa, esqueça tudo');
 
 //Função que toca os sons das teclas ao apertar os botões
 function tocasom (idElementoAudio) {
