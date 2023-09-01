@@ -16,11 +16,12 @@ let contador = 0
 //enquanto
 while (contador < listadeteclas.lenght) {
 
+ const tecla = listadeteclas[contador];
  const analise = listadeteclas[contador].classList[1];
 
-    console.log(analise)
+    console.log(analise);
 
-    listadeteclas[contador].onclick =  function () {
+    tecla[contador].onclick =  function () {
         tocasom('#som_tecla_pom');
     };
 
