@@ -2,8 +2,8 @@
 alert('Testosterona ixtouradassa, esqueça tudo');
 
 //pom
-function tocasompom () {
-    document.querySelector('#som_tecla_pom').play();
+function tocasom (idElementoAudio) {
+    document.querySelector(idElementoAudio).play();
 }
 
 
@@ -14,8 +14,8 @@ const listadeteclas = document.querySelectorAll('.tecla');
 let contador = 0
 
 //enquanto
-while (contador < 9) {
-    listadeteclas[contador].onclick = tocasompom;
+while (contador < listadeteclas.lenght) {
+    listadeteclas[contador].onclick = tocasom;
 
     contador = contador + 1;
 
