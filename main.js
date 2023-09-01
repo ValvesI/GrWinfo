@@ -7,7 +7,18 @@ function tocasompom () {
 }
 
 
-
+//constante de todas as teclas
 const listadeteclas = document.querySelectorAll('.tecla');
 
+//variavel
+let contador = 0
 
+//enquanto
+while (contador < 9) {
+    listadeteclas[0].onclick = tocasompom;
+
+    contador = contador + 1;
+
+    console.log(contador);
+
+}
