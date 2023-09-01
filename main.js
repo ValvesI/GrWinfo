@@ -15,7 +15,7 @@ let contador = 0
 
 //enquanto
 while (contador < 9) {
-    listadeteclas[0].onclick = tocasompom;
+    listadeteclas[contador].onclick = tocasompom;
 
     contador = contador + 1;
 
