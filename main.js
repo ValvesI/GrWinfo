@@ -21,7 +21,7 @@ while (contador < listadeteclas.lenght) {
 
     console.log(idaudio);
 
-    const idaudio = `#som_$(instrumento)`;
+    const idaudio = `#som_$(analise)`;
 
     tecla[contador].onclick =  function () {
         tocasom(idaudio);
