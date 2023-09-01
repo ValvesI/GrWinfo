@@ -14,7 +14,7 @@ const listadeteclas = document.querySelectorAll('.tecla');
 let contador = 0
 
 //enquanto
-while (contador < listadeteclas.lenght) {
+while (contador < listadeteclas.length) {
 
  const tecla = listadeteclas[contador];
  const analise = listadeteclas[contador].classList[1];
