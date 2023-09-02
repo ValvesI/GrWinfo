@@ -1,4 +1,21 @@
 /*Titulo da pagina------------------------*/
-
-
+.titulo-logo{
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+}
+.bannerh1{
+    font-size: 70px;
+    margin: 0;
+}
+.bannerimg{
+    background-image: url(imagens/academia.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+}
 /*---------------------------------------*/
