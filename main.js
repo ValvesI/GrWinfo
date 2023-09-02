@@ -11,7 +11,7 @@ function tocasom (idElementoAudio) {
 const listadeteclas = document.querySelectorAll('.tecla');
 
 //enquanto o contador acontece
-for (let contador = 0; contador < listadeteclas.length) {
+for (let contador = 0; contador < listadeteclas.length;) {
 
  const tecla = listadeteclas[contador];
  const analise = tecla.classList[1];
