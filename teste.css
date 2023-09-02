@@ -11,7 +11,7 @@
     margin: 0;
 }
 .bannerimg{
-    background-image: url(imagens/academia.jpg);
+    background-image: url("imagens/academia.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
