@@ -1,3 +1,18 @@
-/*Botões---------------------------------*/
+/*fonts----------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+/*Botões---------------------------------*/
+.butoes{
+    margin: 360px;
+    text-align: center;
+}
+.btn{
+    border: 1px solid #2c3e50;
+    background: none;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+}
 /*---------------------------------------*/
