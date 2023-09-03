@@ -1,6 +1,14 @@
 /*fonts----------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+/*Hyperlink style------------------------*/
+a{text-decoration: none;
+
+}
+a :visited{
+    text-decoration: none;
+}
+
 /*Botões---------------------------------*/
 .butoes{
     margin: 100px;
@@ -20,18 +28,18 @@
 
 }
 
-.btn1{
+.btn1 a{
 color: #2c3e50;
 }
-.btn2,.btn3{
+.btn2,.btn3 a{
     color: #fff;
 }
 
-.btn1:hover{
+.btn1:hover a{
     color: #fff;
 
 }
-.btn2:hover,.btn3:hover{
+.btn2:hover,.btn3:hover a{
     color: #2c3e50;
 
 }
