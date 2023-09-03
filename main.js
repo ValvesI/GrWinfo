@@ -26,5 +26,4 @@ for (let contador = 0; contador < listadeteclas.length; contador++) {
         tocasom(idaudio);
     }
     //console.log(contador);
-
 }
