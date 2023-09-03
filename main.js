@@ -5,17 +5,14 @@
 function tocasom (seletorAudio) {
  const elemento = document.querySelector(seletorAudio);
 
- if (elemento === null) {
-    console.log('Esse elemento não existe');
- }
 
- if (elemento != null) {
+ if (elemento != null && elemento.localName === 'audio') {
 
-    if (elemento.localName === 'audio') {
          elemento.play();
     }
-   
- }
+   else {
+    console.log('Esse elemento não existe');
+   }
 }
 
 
