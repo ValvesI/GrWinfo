@@ -11,8 +11,10 @@ function tocasom (seletorAudio) {
 
  if (elemento != null) {
 
-    console.log(elemento.localName === 'audio');
-    //elemento.play();
+    if (elemento.localName === 'audio') {
+         elemento.play();
+    }
+   
  }
 }
 
