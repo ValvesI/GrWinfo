@@ -2,8 +2,18 @@
 //alert('Testosterona ixtouradassa, esqueça tudo');
 
 //Função que toca os sons das teclas ao apertar os botões
-function tocasom (idElementoAudio) {
-    document.querySelector(idElementoAudio).play();
+function tocasom (seletorAudio) {
+ const elemento = document.querySelector(seletorAudio);
+
+ if (elemento === null) {
+    console.log('Esse elemento não existe');
+ }
+
+ if (elemento != null) {
+
+    console.log();
+    //elemento.play();
+ }
 }
 
 
