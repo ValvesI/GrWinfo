@@ -11,7 +11,7 @@ function tocasom (seletorAudio) {
 
  if (elemento != null) {
 
-    console.log(elemento.localName);
+    console.log(elemento.localName === 'audio');
     //elemento.play();
  }
 }
