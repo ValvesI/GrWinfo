@@ -60,4 +60,8 @@ color: #2c3e50;
 .btn2::before,.btn3::before{
     height: 180%;
 }
+
+.btn1:hover::before{
+    height: 180%;
+}
 /*---------------------------------------*/
