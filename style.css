@@ -266,18 +266,6 @@ head{background-color: #009edf;
      border: 2px solid #fff;
      border-radius: 50px;
  }
- .conteudosss label{
-     background-color: #333342;
-     bottom: 10px;
-     cursor: pointer;
-     display: block;
-     height: 10px;
-     position: absolute;
-     width: 10px;
-     z-index: 10;
-     border: 2px solid #fff;
-     border-radius: 50px;
- }
  
  .slider li:nth-child(1) label {
      left: 10px;
