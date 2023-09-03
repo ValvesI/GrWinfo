@@ -57,4 +57,7 @@ color: #2c3e50;
     border-radius: 50% 50% 0 0;
 }
 
+.btn2::before,.btn3::before{
+    height: 180%;
+}
 /*---------------------------------------*/
