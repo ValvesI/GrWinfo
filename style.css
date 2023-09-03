@@ -255,7 +255,7 @@ head{background-color: #009edf;
      display: none;
  }
  .slider label {
-     background-color: #ff0000;
+     background-color: #333342;
      bottom: 10px;
      cursor: pointer;
      display: block;
@@ -263,6 +263,8 @@ head{background-color: #009edf;
      position: absolute;
      width: 10px;
      z-index: 10;
+     border: 2px solid #fff;
+     border-radius: 50px;
  }
  
  .slider li:nth-child(1) label {
