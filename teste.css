@@ -76,4 +76,8 @@ color: #2c3e50;
 .btn2:hover::before,.btn3:hover::before{
     height: 0%;
 }
-/*---------------------------------------*/
+/*Trabalho de química---------------------------------------*/
+.info_quimi{
+    font-family: 'Montserrat';
+    text-align: center;
+}
