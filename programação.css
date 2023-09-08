@@ -6,3 +6,17 @@ html{
     background-color: #2c3e50;
     color: #fff
 }
+
+.btnp{
+    background-color: #fff;
+        Border: 1px solid #1f1e33;
+        margin: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited{
+     text-decoration: none;
+}
