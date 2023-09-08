@@ -84,5 +84,6 @@ color: #2c3e50;
 .butoes-quimi{
     margin: 0px;
     text-align: center;
-    padding: 22px;
+    padding: 22px 325px;
+    display: grid;
 }
