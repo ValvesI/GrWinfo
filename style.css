@@ -162,6 +162,7 @@ border: 5px solid rgba(255, 255, 255, 0.192);
 .formulariopv{
      align-items: center;
      padding: 30px;
+     position: sticky;
 }
 .formulario{
      width: 400px;
