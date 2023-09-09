@@ -85,6 +85,12 @@ color: #2c3e50;
 .butoes-quimi{
     margin: 0px;
     text-align: center;
-    padding: 22px 325px;
-    display: grid;
+    display: flex;
+    direction: column;
+}
+
+@media screen and (max-height: 572px) {
+    body {width: 100%;
+    }
+
 }
