@@ -334,3 +334,7 @@ height: 17%;}
   
 }
 
+.bacademia{
+  position: absolute;
+  z-index: -1;
+}
