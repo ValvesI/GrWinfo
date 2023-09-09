@@ -86,7 +86,7 @@ color: #2c3e50;
     margin: 0px;
     text-align: center;
     display: flex;
-    direction: column;
+    flex-direction: column;
 }
 
 @media screen and (max-height: 572px) {
