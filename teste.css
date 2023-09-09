@@ -11,9 +11,9 @@ a:visited{
 
 /*Botões---------------------------------*/
 .butoes{
-    margin: 100px;
     text-align: center;
-    padding: 150px;
+    position: relative;
+    top: 150px;
     text-decoration: none;
 }
 .btn{
