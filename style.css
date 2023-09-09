@@ -319,7 +319,8 @@ head{background-color: #009edf;
     height: 20px}
 
 .logico{width: 17%;
-height: 17%;}
+height: 17%;
+margin: 0px;}
 
 @media screen and (max-width: 676px) {
   .slider {
