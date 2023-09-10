@@ -86,7 +86,6 @@ img{
 }
 
 .site nav{
-  position:absolute;
   top:0;
   left:0;
   background:#222;
@@ -337,7 +336,7 @@ margin: 0px;}
   filter: blur(4px);
 }
 .search-box{
-  position: sticky;
+  position: relative;
   width: 1336px;
   height: 0px;
   top: 0px;
