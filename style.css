@@ -332,7 +332,8 @@ margin: 0px;}
   position: absolute;
   z-index: 1;
   top: 0px;
-  width: 120%;
+  width: 1366px;
+  height: 800px;
   filter: blur(4px);
 }
 .search-box{
