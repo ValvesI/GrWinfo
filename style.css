@@ -160,7 +160,7 @@ height: 134px;
 border: 5px solid rgba(255, 255, 255, 0.192);
 }
 .formulario{
-     width: 400px;
+     width: 100%;
      padding: 30px;
      border:1px solid #ccc;
  }
