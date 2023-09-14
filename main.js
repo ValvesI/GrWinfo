@@ -1,7 +1,7 @@
 //Alerta
 //alert('Testosterona ixtouradassa, esqueça tudo');
 
-function tocasompom () {
+function toca () {
     document.querySelector('#som_tecla_pom').play();
 }
 
