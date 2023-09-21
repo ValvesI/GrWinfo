@@ -12,7 +12,7 @@ while (Contador < lista.length) {
     lista[Contador].onclick =  function () {
         toca('#som_tecla_pom');
     }
-const classe = lista[Contador].classlist[1];
+const classe = lista[Contador].classList[1];
 console.log(classe);
 
 Contador = Contador + 1;
