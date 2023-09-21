@@ -1,17 +1,19 @@
 //Alerta
 //alert('Testosterona ixtouradassa, esqueça tudo');
 
-function toca () {
-    document.querySelector('#som_tecla_pom').play();
+function toca (idElementoAudio) {
+    document.querySelector(idElementoAudio).play();
 }
 const lista = document.querySelectorAll('.tecla');
 
 let Contador = 0;
 
 while (Contador < 9) {
-    lista[Contador].onclick = toca;
-const classe = lista {Contador.classlist{1}}
-consolee.log(classe);
+    lista[Contador].onclick =  function () {
+        tocar('#som_tecla_pom');
+    }
+const classe = lista[Contador].classlist[1];
+console.log(classe);
 
 Contador = Contador + 1;
 
