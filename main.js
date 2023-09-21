@@ -8,7 +8,7 @@ const lista = document.querySelectorAll('.tecla');
 
 let Contador = 0;
 
-while (Contador < 9) {
+while (Contador < lista.length) {
     lista[Contador].onclick =  function () {
         toca('#som_tecla_pom');
     }
