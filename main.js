@@ -10,17 +10,17 @@ let Contador = 0;
 
 while (Contador < lista.length) {
     const classe = lista[Contador].classList[1];
-    console.log(classe);
+   // console.log(classe);
     
     const idAudio = `#som_${classe}`;
-    console.log(idAudio);
+    //console.log(idAudio);
 
     lista[Contador].onclick =  function () {
         toca(idAudio);
     }
 
 Contador = Contador + 1;
-console.log(Contador);
+//console.log(Contador);
 
 }
 
