@@ -14,9 +14,9 @@ while (Contador < lista.length) {
     
     const idAudio = `#som_${classe}`;
     console.log(idAudio);
-    
+
     lista[Contador].onclick =  function () {
-        tocar(idAudio);
+        toca(idAudio);
     }
 
 Contador = Contador + 1;
