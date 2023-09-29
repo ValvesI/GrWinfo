@@ -9,17 +9,18 @@ const lista = document.querySelectorAll('.tecla');
 let Contador = 0;
 
 while (Contador < lista.length) {
+    const classe = lista[Contador].classList[1];
+    console.log(classe);
+    
+    const idAudio = `#som_${classe}`;
+    console.log(idAudio);
+    
     lista[Contador].onclick =  function () {
-        toca('#som_tecla_pom');
+        tocar(idAudio);
     }
-const classe = lista[Contador].classList[1];
-console.log(classe);
 
 Contador = Contador + 1;
-
 console.log(Contador);
-const idAudio = `#som_${classe}`;
-console.log(idAudio);
 
 }
 
