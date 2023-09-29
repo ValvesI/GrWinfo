@@ -10,7 +10,7 @@ let Contador = 0;
 
 while (Contador < lista.length) {
     const tecla = lista[Contador];
-    const classe = lista[Contador].classList[1];
+    const classe =tecla.classList[1]
    // console.log(classe);
     
     const idAudio = `#som_${classe}`;
