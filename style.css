@@ -436,7 +436,7 @@ body {
     outline: none;
     border: none;
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.2);*/
-    background: #89CFF3;
+    background: grey.;
     color: white;
     text-shadow: 0 0 10px #89CFF3;
     padding: 0 80px 0 20px;
