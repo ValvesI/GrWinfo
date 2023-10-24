@@ -375,6 +375,7 @@ body {
   bottom: 0;
   width: 300px;
   height: 100px;
+}
   .search {
     position: absolute;
     margin: auto;
@@ -482,4 +483,4 @@ body {
       font-weight: bolder;
     }
   }
-}
+
