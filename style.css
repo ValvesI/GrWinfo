@@ -367,22 +367,22 @@ body {
 }
 
 .search-bar {
-  position: absolute;
+  position: fixed;
   margin: auto;
   top: 0;
-  left: 0;
+  /*left: 0;*/
   right: 0;
-  bottom: 0;
+  /*bottom: 0;*/
   width: 300px;
   height: 100px;
 }
   .search {
-    position: absolute;
+    position: fixed;
     margin: auto;
     top: 0;
     right: 0;
-    bottom: 0;
-    left: 0;
+    /*bottom: 0;*/
+    /*left: 0;*/
     width: 80px;
     height: 80px;
     background: crimson;
