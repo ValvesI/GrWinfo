@@ -1,276 +1,531 @@
-const PointTarget = ReactPoint.PointTarget
+/*
+** global vars
+*/
 
-class AutoScalingText extends React.Component {
-  state = {
-    scale: 1
-  };
-  
-  componentDidUpdate() {
-    const { scale } = this.state
-    
-    const node = this.node
-    const parentNode = node.parentNode
-    
-    const availableWidth = parentNode.offsetWidth
-    const actualWidth = node.offsetWidth
-    const actualScale = availableWidth / actualWidth
-    
-    if (scale === actualScale)
-      return
-    
-    if (actualScale < 1) {
-      this.setState({ scale: actualScale })
-    } else if (scale < 1) {
-      this.setState({ scale: 1 })
-    }
-  }
-  
-  render() {
-    const { scale } = this.state
-    
-    return (
-      <div
-        className="auto-scaling-text"
-        style={{ transform: `scale(${scale},${scale})` }}
-        ref={node => this.node = node}
-      >{this.props.children}</div>
-    )
+var a = 0,
+  b = 0,
+  is_a = true,
+  is_b = false,
+  o = 'nil',
+  answer = 0,
+  first_a = true,
+  first_b = true,
+  is_submission = false,
+  soft_sub = false,
+  display = jQuery('#total');
+
+
+
+/*
+** tool functions
+*/
+
+// console.log
+function write(x) {
+  console.log(x);
+}
+// add int to current display value
+function changeDisplayVal(i) {
+  display.text(display.text() + i);
+}
+// make * into ×
+function  visOps(x) {
+  if ( x === '*' ) {
+    // return 'u00D7';
+    return '×';
+  } else if ( x === '/' ) {
+    // return 'u00F7';
+    return '÷';
+  } else {
+    return x;
   }
 }
-
-class CalculatorDisplay extends React.Component {
-  render() {
-    const { value, ...props } = this.props
-    
-    const language = navigator.language || 'en-US'
-    let formattedValue = parseFloat(value).toLocaleString(language, {
-      useGrouping: true,
-      maximumFractionDigits: 6
-    })
-    
-    // Add back missing .0 in e.g. 12.0
-    const match = value.match(/\.\d*?(0*)$/)
-    
-    if (match)
-      formattedValue += (/[1-9]/).test(match[0]) ? match[1] : match[0]
-    
-    return (
-      <div {...props} className="calculator-display">
-        <AutoScalingText>{formattedValue}</AutoScalingText>
-      </div>
-    )
-  }
+// set display value
+function setDisplayVal(x) {
+  display.text( visOps(x));
+}
+// make touch animation
+function animateButton(obj) {
+  var button = obj.addClass('hovering');
+  setTimeout(function() {
+      button.removeClass('hovering');
+  }, 100);
 }
 
-class CalculatorKey extends React.Component {
-  render() {
-    const { onPress, className, ...props } = this.props
-    
-    return (
-      <PointTarget onPoint={onPress}>
-        <button className={`calculator-key ${className}`} {...props}/>
-      </PointTarget>
-    )
-  }
-}
 
-const CalculatorOperations = {
-  '/': (prevValue, nextValue) => prevValue / nextValue,
-  '*': (prevValue, nextValue) => prevValue * nextValue,
-  '+': (prevValue, nextValue) => prevValue + nextValue,
-  '-': (prevValue, nextValue) => prevValue - nextValue,
-  '=': (prevValue, nextValue) => nextValue
-}
 
-class Calculator extends React.Component {
-  state = {
-    value: null,
-    displayValue: '0',
-    operator: null,
-    waitingForOperand: false
-  };
-  
-  clearAll() {
-    this.setState({
-      value: null,
-      displayValue: '0',
-      operator: null,
-      waitingForOperand: false
-    })
-  }
+/*
+** operation functions
+*/
 
-  clearDisplay() {
-    this.setState({
-      displayValue: '0'
-    })
-  }
-  
-  clearLastChar() {
-    const { displayValue } = this.state
-    
-    this.setState({
-      displayValue: displayValue.substring(0, displayValue.length - 1) || '0'
-    })
-  }
-  
-  toggleSign() {
-    const { displayValue } = this.state
-    const newValue = parseFloat(displayValue) * -1
-    
-    this.setState({
-      displayValue: String(newValue)
-    })
-  }
-  
-  inputPercent() {
-    const { displayValue } = this.state
-    const currentValue = parseFloat(displayValue)
-    
-    if (currentValue === 0)
-      return
-    
-    const fixedDigits = displayValue.replace(/^-?\d*\.?/, '')
-    const newValue = parseFloat(displayValue) / 100
-    
-    this.setState({
-      displayValue: String(newValue.toFixed(fixedDigits.length + 2))
-    })
-  }
-  
-  inputDot() {
-    const { displayValue } = this.state
-    
-    if (!(/\./).test(displayValue)) {
-      this.setState({
-        displayValue: displayValue + '.',
-        waitingForOperand: false
-      })
+// setting a
+function set_a(i) {
+  if ( is_a ) {
+    // nothing if a duplicate decimal
+    if ( i === '.' && a.toString().indexOf('.') !== -1 ) {
+      write('Duplicate Decimal');
+      i = '';
+    } else if ( i === '.' && first_a ) {
+      i = '0.';
     }
-  }
-  
-  inputDigit(digit) {
-    const { displayValue, waitingForOperand } = this.state
-    
-    if (waitingForOperand) {
-      this.setState({
-        displayValue: String(digit),
-        waitingForOperand: false
-      })
-    } else {
-      this.setState({
-        displayValue: displayValue === '0' ? String(digit) : displayValue + digit
-      })
-    }
-  }
-  
-  performOperation(nextOperator) {    
-    const { value, displayValue, operator } = this.state
-    const inputValue = parseFloat(displayValue)
-    
-    if (value == null) {
-      this.setState({
-        value: inputValue
-      })
-    } else if (operator) {
-      const currentValue = value || 0
-      const newValue = CalculatorOperations[operator](currentValue, inputValue)
-      
-      this.setState({
-        value: newValue,
-        displayValue: String(newValue)
-      })
-    }
-    
-    this.setState({
-      waitingForOperand: true,
-      operator: nextOperator
-    })
-  }
-  
-  handleKeyDown = (event) => {
-    let { key } = event
-    
-    if (key === 'Enter')
-      key = '='
-    
-    if ((/\d/).test(key)) {
-      event.preventDefault()
-      this.inputDigit(parseInt(key, 10))
-    } else if (key in CalculatorOperations) {
-      event.preventDefault()
-      this.performOperation(key)
-    } else if (key === '.') {
-      event.preventDefault()
-      this.inputDot()
-    } else if (key === '%') {
-      event.preventDefault()
-      this.inputPercent()
-    } else if (key === 'Backspace') {
-      event.preventDefault()
-      this.clearLastChar()
-    } else if (key === 'Clear') {
-      event.preventDefault()
-      
-      if (this.state.displayValue !== '0') {
-        this.clearDisplay()
+    // first_a time, we need to clear the display
+    if ( first_a === true ) {
+      if ( i === '0' ) {
+        i = '';
       } else {
-        this.clearAll()
+        // set display value
+        setDisplayVal(i);
+        // no longer first_a
+        first_a = false;
       }
+    } else {
+      // add int to current display value
+      changeDisplayVal(i);
     }
-  };
-  
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown)
-  }
-  
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown)
-  }
-  
-  render() {
-    const { displayValue } = this.state
-    
-    const clearDisplay = displayValue !== '0'
-    const clearText = clearDisplay ? 'C' : 'AC'
-    
-    return (
-      <div className="calculator">
-        <CalculatorDisplay value={displayValue}/>
-        <div className="calculator-keypad">
-          <div className="input-keys">
-            <div className="function-keys">
-              <CalculatorKey className="key-clear" onPress={() => clearDisplay ? this.clearDisplay() : this.clearAll()}>{clearText}</CalculatorKey>
-              <CalculatorKey className="key-sign" onPress={() => this.toggleSign()}>±</CalculatorKey>
-              <CalculatorKey className="key-percent" onPress={() => this.inputPercent()}>%</CalculatorKey>
-            </div>
-            <div className="digit-keys">
-              <CalculatorKey className="key-0" onPress={() => this.inputDigit(0)}>0</CalculatorKey>
-              <CalculatorKey className="key-dot" onPress={() => this.inputDot()}>●</CalculatorKey>
-              <CalculatorKey className="key-1" onPress={() => this.inputDigit(1)}>1</CalculatorKey>
-              <CalculatorKey className="key-2" onPress={() => this.inputDigit(2)}>2</CalculatorKey>
-              <CalculatorKey className="key-3" onPress={() => this.inputDigit(3)}>3</CalculatorKey>
-              <CalculatorKey className="key-4" onPress={() => this.inputDigit(4)}>4</CalculatorKey>
-              <CalculatorKey className="key-5" onPress={() => this.inputDigit(5)}>5</CalculatorKey>
-              <CalculatorKey className="key-6" onPress={() => this.inputDigit(6)}>6</CalculatorKey>
-              <CalculatorKey className="key-7" onPress={() => this.inputDigit(7)}>7</CalculatorKey>
-              <CalculatorKey className="key-8" onPress={() => this.inputDigit(8)}>8</CalculatorKey>
-              <CalculatorKey className="key-9" onPress={() => this.inputDigit(9)}>9</CalculatorKey>
-            </div>
-          </div>
-          <div className="operator-keys">
-            <CalculatorKey className="key-divide" onPress={() => this.performOperation('/')}>÷</CalculatorKey>
-            <CalculatorKey className="key-multiply" onPress={() => this.performOperation('*')}>×</CalculatorKey>
-            <CalculatorKey className="key-subtract" onPress={() => this.performOperation('-')}>−</CalculatorKey>
-            <CalculatorKey className="key-add" onPress={() => this.performOperation('+')}>+</CalculatorKey>
-            <CalculatorKey className="key-equals" onPress={() => this.performOperation('=')}>=</CalculatorKey>
-          </div>
-        </div>
-      </div>
-    )
+
+    a = display.text();
+
+    write('Set "a" to ' + a);
   }
 }
 
-ReactDOM.render(
-  <Calculator/>,
-  document.getElementById('app')
-)
+// setting b
+function set_b(i) {
+  if ( !is_a ) {
+    // nothing if a duplicate decimal
+    if ( i === '.' && b.toString().indexOf('.') !== -1 ) {
+      write('Duplicate Decimal!');
+      i = '';
+    } else if ( i === '.' && first_b ) {
+      i = '0.';
+    }
+    // first_b time, we need to clear the display
+    if ( first_b === true ) {
+      if ( i === '0' ) {
+        i = '';
+      } else {
+        // set display value
+        setDisplayVal(i);
+        // no longer first_b
+        first_b = false;
+      }
+    } else {
+      // add int to current display value
+      changeDisplayVal(i);
+    }
+    // set b to current display Value
+    b = display.text();
+
+    write('Set "b" to ' + b);
+  }
+}
+
+// looping calculator
+function loop_calc(answer) {
+  write('Loop Calculator');
+
+  a = answer;
+  b = 0;
+  answer = 0;
+  // set display value
+  setDisplayVal(a);
+}
+
+// setting operator
+function set_o(op) {
+  // if answer, loop the calculator to prepare for b
+  if ( is_submission ) {
+    loop_calc(display.text());
+    is_submission = false;
+  }
+  // if new op is submitting calc
+  if ( !first_b ) {
+    softsubmit_calc();
+  }
+
+  // replace or set operator in display
+  setDisplayVal(op);
+  // replace or set global operator
+  o = op;
+
+  if ( is_a ) { is_a = false; }
+  if ( !is_b ) { is_b = true; }
+
+  write('Set "o" to ' + o);
+}
+
+// soft submit calc
+function softsubmit_calc() {
+  // evaluate equation
+  var preCalc = eval(a + '' + o + '' + b);
+  // parse float to 12
+  answer = parseFloat(preCalc.toPrecision(12));
+
+  // submit answer to display
+  display.text(answer);
+
+  // reset first_b to true
+  first_b = true;
+
+  // post result
+  newResult(a,o,b,answer);
+
+  write(a + ' ' + o + ' ' + b + ' = ' + answer);
+
+  a = answer;
+  b = 0;
+  o = o;
+  // set display value
+  setDisplayVal(o);
+  is_a = false;
+  is_b = true;
+
+  first_b = true;
+
+  soft_sub = true;
+
+  write('Soft Submission');
+}
+
+// submit calculator
+function submit_calc() {
+  write('Submission');
+  if ( first_b === false ) {
+    var preCalc = 0;
+    if ( o === "^" ) {
+        // evaluate equation
+        preCalc = Math.pow(a,b);
+    } else {
+        // evaluate equation
+        preCalc = eval(a + '' + o + '' + b);
+    }
+    // parse float to 12
+    answer = parseFloat(preCalc.toPrecision(12));
+
+    // submit answer to display
+    display.text(answer);
+    // display is now the answer
+    is_submission = true;
+    // reset first_b to true
+    first_b = true;
+
+    // post result
+    newResult(a,o,b,answer);
+
+    write(a + ' ' + o + ' ' + b + ' = ' + answer);
+  } else {
+    write("You can't do that yet");
+  }
+}
+
+// negging value
+function neg() {
+  display.text(display.text() * -1);
+  if ( is_submission ) {
+    a = a * -1;
+  } else {
+    if ( is_a ) {
+      a = a * -1;
+      setDisplayVal(a);
+    } else {
+      b = b * -1;
+      setDisplayVal(b);
+    }
+  }
+}
+
+// resetting calculator
+function reset_calc() {
+  a = 0;
+  b = 0;
+  o = 'nil';
+  answer = 0;
+  is_a = true;
+  is_b = false;
+  first_a = true;
+  first_b = true;
+  is_submission = false;
+  soft_sub = false;
+  display.text(0);
+
+  // reset display value
+  setDisplayVal(0);
+
+  write('Calculator Reset');
+}
+
+// backspacing value
+function backspace() {
+  if ( display.text() !== '' && display.text() !== '0' ) {
+    display.text( display.text().substring(0, display.text().length - 1) );
+    if ( is_a === true ) {
+        a = parseFloat(a.toString().substring(0, a.toString().length - 1 ));
+    } else {
+        b = parseFloat(b.toString().substring(0, b.toString().length - 1 ));
+    }
+  } else {
+    write('Nothing Left to Backspace');
+  }
+}
+
+// set value to memory value
+function memory(i) {
+  if ( is_submission ) {
+    loop_calc(i);
+  } else if ( is_a ) {
+    loop_calc(i);
+  } else {
+    set_b(i);
+  }
+  answer = a;
+}
+
+
+
+/*
+** logging to memory console
+*/
+
+function newResult(a,o,b,answer) {
+  var results = jQuery('#results_list');
+  var result = '' +
+  '<li class="result"><span class="equation">' + a + ' ' +  visOps(o) + ' ' + b + ' </span>' +
+  '<span class="answer">' + answer + '</span> <span class="use"><a class="calc_use" href="#">Use</a></span></li>';
+  results.prepend(result).children('li').fadeIn(200);
+  if ( jQuery('#result_default') ) {
+    jQuery('#result_default').remove();
+  }
+  // click use
+  jQuery('.calc_use').off('click').on('click', function() {
+    var i = jQuery(this).parent('.use').siblings('.answer').text();
+    jQuery(this).parents('.result').animate({'opacity': '0.5'},200).animate({'opacity': '1'},200);
+    jQuery('#total').animate({'opacity': '0.5'},200).animate({'opacity': '1'},200);
+    memory(i);
+    return false;
+  });
+}
+
+
+
+/*
+** complex functions
+*/
+
+function sqrt(i) {
+  write('Square Root');
+  var s = Math.sqrt(i);
+  answer = s;
+  write('u221A' + i + ' = ' + s);
+  loop_calc(s);
+  newResult('','√',i,s);
+  // submit answer to display
+  display.text(answer);
+  // display is now the answer
+  is_submission = true;
+  // reset first_b to true
+  first_b = true;
+}
+
+function square(i) {
+  write('Square');
+  var s = i * i;
+  answer = s;
+  write(i + ' u005E 2 = ' + s );
+  loop_calc(s);
+  newResult(i,' &#94; 2','',s);
+  // submit answer to display
+  display.text(answer);
+  // display is now the answer
+  is_submission = true;
+  // reset first_b to true
+  first_b = true;
+}
+
+function denom(i) {
+  write('Denominator');
+  var s = 1 / i;
+  answer = s;
+  write('1 / ' + i + ' = ' + s );
+  loop_calc(s);
+  newResult(1,' / ',i,s);
+  // submit answer to display
+  display.text(answer);
+  // display is now the answer
+  is_submission = true;
+  // reset first_b to true
+  first_b = true;
+}
+
+
+
+/*
+** Usage - Click Events
+*/
+
+// click integers
+jQuery('.calc_int, #calc_decimal').each(function() {
+  jQuery(this).click(function() {
+    var value = jQuery(this).val();
+    if ( is_submission === false ) {
+      if ( is_a === true ) {
+        set_a(value);
+      } else {
+        set_b(value);
+      }
+    } else {
+      reset_calc();
+      set_a(value);
+    }
+  });
+});
+
+// click operators
+jQuery('.calc_op').each(function() {
+  jQuery(this).click(function() {
+    var value = jQuery(this).val();
+    set_o(value);
+  });
+});
+
+// click equals
+jQuery('#calc_eval').click(function() {
+  submit_calc();
+});
+
+// click clear
+jQuery('#calc_clear').click(function() {
+  reset_calc();
+});
+
+// click neg
+jQuery('#calc_neg').click(function() {
+  neg();
+});
+
+// click backspace
+jQuery('#calc_back').click(function() {
+  backspace();
+});
+
+// click square root
+jQuery('#calc_sqrt').click(function() {
+  if ( display.text() !== '0' ) {
+    if ( is_submission ) {
+      sqrt(answer);
+    } else if ( is_a ) {
+      sqrt(a);
+    }
+  }
+  return false;
+});
+
+// click square
+jQuery('#calc_square').click(function() {
+  if ( display.text() !== '0' ) {
+    if ( is_submission ) {
+      square(answer);
+    } else if ( is_a ) {
+      square(a);
+    }
+  }
+  return false;
+});
+
+// click denominator
+jQuery('#calc_denom').click(function() {
+  if ( display.text() !== '0' ) {
+    if ( is_submission ) {
+      denom(answer);
+    } else if ( is_a ) {
+      denom(a);
+    }
+  }
+  return false;
+});
+
+
+// reset console
+jQuery('#result_clear').click(function() {
+  jQuery('#results_list').children('li').fadeOut(200, function() {
+    jQuery(this).remove();
+  });
+  jQuery('#results_list').prepend('<li id="result_default">Memory is Empty</li>');
+  return false;
+});
+
+
+/*
+** Key Events
+*/
+
+// key press for integers and operators
+jQuery(document).keypress(function (e) {
+  // the character code
+  var charCode = e.which;
+  // the key
+  var key = String.fromCharCode(charCode);
+
+  // key integers & decimal
+  if ( charCode >= 46 && charCode <= 58 && charCode !== 47 ) {
+    if ( !is_submission ) {
+      if ( is_a ) {
+        set_a(key);
+      } else {
+        set_b(key);
+      }
+    } else if ( soft_sub ) {
+      set_b(key);
+    } else {
+      reset_calc();
+      set_a(key);
+    }
+  }
+
+  // key operators
+  if ( charCode >= 42 && charCode <= 45 && charCode !== 44 || charCode === 47 ) {
+    set_o(key);
+  }
+
+  // key equals
+  if ( charCode === 61 ) {
+    submit_calc();
+  }
+
+  // animate the corrosponding button
+  jQuery('button').each(function() {
+    var value = jQuery(this).val();
+    if ( value === key ) {
+      animateButton(jQuery(this));
+    }
+  });
+
+});
+
+// keydown for backspace and return
+jQuery(document).keydown(function (e) {
+
+  // the character code
+  var charCode = e.which;
+
+  // backspace
+  if ( charCode === 8 ) {
+    backspace();
+    animateButton(jQuery('#calc_back'));
+    return false;
+  }
+
+  // clear
+  if ( charCode === 12 ) {
+    reset_calc();
+    animateButton(jQuery('#calc_clear'));
+    return false;
+  }
+
+  // return
+  if ( charCode === 13 ) {
+    submit_calc();
+    animateButton(jQuery('#calc_eval'));
+    return false;
+  }
+
+});
