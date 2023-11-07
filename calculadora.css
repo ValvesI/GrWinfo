@@ -33,11 +33,11 @@
            cursor: pointer;
        }
 
-       button:hover {
+       .calcbut:hover {
            background-color: #14ce1d;
        }
 
-       p {
+       .calp {
            font-size: 20px;
            color: #ffffff;
        }
