@@ -101,3 +101,8 @@ a:visited{
 .tecla:active:focus {
     box-shadow: 3px 3px 0 #af303f inset, 1px 1px 10px rgb(229, 255, 0);
 }
+
+.nasbut:hover{
+    background-color: gray;
+    color: black;
+}
