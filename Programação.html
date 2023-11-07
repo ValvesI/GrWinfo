@@ -91,40 +91,20 @@ li UL:
     <audio src="audios/keye.wav" id="som_tecla_tim"></audio>
 
      <!-- Calculadora Maluca -->
-     <table id="calcu"> 
-        <tr> 
-            <td colspan="3"> 
-                <input type="text" id="result"> 
-            </td> 
-            <td><input type="button" value="c"></td> 
-        </tr> 
-  
-        <tr> 
-            <td><input type="button" value="1"></td> 
-            <td><input type="button" value="2"></td> 
-            <td><input type="button" value="3"></td> 
-            <td><input type="button" value="/"></td> 
-        </tr> 
-        <tr> 
-            <td><input type="button" value="4"></td> 
-            <td><input type="button" value="5"></td> 
-            <td><input type="button" value="6"></td> 
-            <td><input type="button" value="*"></td> 
-        </tr> 
-        <tr> 
-            <td><input type="button" value="7"></td> 
-            <td><input type="button" value="8"></td> 
-            <td><input type="button" value="9"></td> 
-            <td><input type="button" value="-"></td> 
-        </tr> 
-        <tr> 
-            <td><input type="button" value="0"></td> 
-            <td><input type="button" value="."></td> 
-            <td><input type="button" value="="></td> 
-            <td><input type="button" value="+"></td> 
-        </tr> 
-    </table> 
+<section class="calculadora">
+    <input type="number" id="numero1" placeholder="Número 1" class="calcinput">
+    <select id="operador">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="**">**</option>
+    </select>
+    <input type="number" id="numero2" placeholder="Número 2">
+    <button onclick="calcular()" class="calcbut">Calcular</button>
+    <p id="resultado">Resultado: </p>
     
+</section>
     
 </body>
 <script src="main.js"></script>

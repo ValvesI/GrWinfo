@@ -1,4 +1,4 @@
-body {
+.calculadora {
     font-family: Arial, sans-serif;
            background-color: #363232;
            text-align: center;
@@ -8,7 +8,7 @@ body {
            color: #ffffff;
        }
 
-       input[type="number"] {
+       .calcinput[type="number"] {
            width: 150px;
            padding: 10px;
            margin: 10px;
@@ -24,7 +24,7 @@ body {
            border-radius: 5px;
        }
 
-       button {
+       .calcbut {
            padding: 10px 20px;
            background-color: #3d1057;
            color: white;
